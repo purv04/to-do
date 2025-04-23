@@ -2,25 +2,31 @@ pipeline {
     agent any
 
     stages {
+        stage('Declarative: Checkout SCM') {
+            steps {
+                git url: 'https://github.com/purv04/to-do', branch: 'main'
+            }
+        }
+        
         stage('Clone Repo') {
             steps {
-                git branch: 'main', url: git url: 'https://github.com/purv04/to-do'
+                script {
+                    // Clone the repository
+                    sh 'git clone https://github.com/purv04/to-do.git'
+                }
             }
         }
 
         stage('Build Docker Image') {
             steps {
-                sh 'docker build -t todo-app .'
+                script {
+                    // Build Docker image
+                    sh 'docker build -t todo-app .'
+                }
             }
         }
 
         stage('Run Docker Container') {
             steps {
-                sh '''
-                    docker rm -f todo-app || true
-                    docker run -d -p 3000:3000 --name todo-app todo-app
-                '''
-            }
-        }
-    }
-}
+                script {
+                    // Run Docker container
