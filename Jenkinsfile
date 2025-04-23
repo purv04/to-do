@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Clone Repo') {
             steps {
-                git branch: 'main', url: 'https://github.com/YOUR_USERNAME/todo-app'
+                git branch: 'main', url: git url: 'https://github.com/purv04/to-do'
             }
         }
 
