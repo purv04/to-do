@@ -39,7 +39,7 @@ pipeline {
             steps {
                 script {
                     // Run Docker container
-                    sh 'docker run -d -p 8081:3000 todo-app'
+                    sh 'docker run -d -p 8082:3000 todo-app'
                 }
             }
         }
