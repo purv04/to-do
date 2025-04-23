@@ -8,6 +8,15 @@ pipeline {
             }
         }
         
+        stage('Clean Existing Repo') {
+            steps {
+                script {
+                    // Remove the existing repository directory if it exists
+                    sh 'rm -rf to-do'
+                }
+            }
+        }
+
         stage('Clone Repo') {
             steps {
                 script {
