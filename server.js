@@ -20,4 +20,4 @@ app.post('/api/todos', (req, res) => {
   }
 });
 
-app.listen(PORT, '0.0.0.0', () => console.log(`Server running on port 8080`));
+app.listen(PORT, '0.0.0.0', () => console.log(`Server running on http://localhost:${PORT}`));
